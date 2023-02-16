@@ -32,8 +32,8 @@ const PopularSection = () => {
         {ships.length > 0 &&
           ships.map((ship) => {
             return (
-              <Link className="my-8 px-8" to={`/shipsDetail/${ship?.id}`} key={ship.id}>
-                <h5 className="text-gray-700 text-xl md:text-2xl lg:text-3xl mb-6">
+              <Link className="my-8 px-8 hover:text-teal-600 mx-auto" to={`/shipsDetail/${ship?.id}`} key={ship.id}>
+                <h5 className="text-gray-700 text-xl font-semibold md:text-2xl mb-2 text-center hover:text-teal-500">
                   {ship?.title}
                 </h5>
                 <img src={ship?.image} alt="" className="w-64 h-48 rounded hover:border-blue-500 border-2 border-transparent p-2 " />

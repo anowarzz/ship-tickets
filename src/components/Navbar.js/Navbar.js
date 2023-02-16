@@ -23,7 +23,7 @@ const Navbar = () => {
       </li>
       </ul>
     </div>
-   <p className='text-white font-bold text-2xl md-text-4xl'>Ship Tickets</p>
+   <Link className='text-white font-bold  sm:text-2xl lg-text-4xl'>Ship Tickets</Link>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
@@ -37,7 +37,7 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-  <div className="form-control">
+  <div className="form-control hidden sm:block">
       <input type="text" placeholder="Search" className="input input-bordered w-3/5 md:w-full py-0"  />
     </div>
 

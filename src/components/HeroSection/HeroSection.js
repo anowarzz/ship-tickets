@@ -6,13 +6,13 @@ import beachImg from '../../assets/beach-1.jpg'
 
 const HeroSection = () => {
     return (
-        <div className='-'>
+        <div className=''>
      
 
     <div className="relative">
       <img
         src={beachImg}
-        className="absolute inset-0 object-cover w-full h-full md:h-11/12"
+        className="absolute inset-0 object-cover w-full h-full"
         alt=""
       />
       <div className="relative bg-gray-900 bg-opacity-50">

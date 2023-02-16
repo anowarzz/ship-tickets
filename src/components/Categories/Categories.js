@@ -13,8 +13,8 @@ const Categories = () => {
       </h2>
 
       <div className="flex justify-around gap-4">
-        <Link className="flex flex-col justify-center items-center">
-          <img src={Boat} alt="" className="w-12 md:w-20" />
+        <Link className="flex flex-col justify-center items-center ">
+          <img src={Boat} alt="" className="w-12 md:w-20 h-12 " />
           <p className="text-blue-500 font-bold">Boat</p>
         </Link>
         <Link className="flex flex-col justify-center items-center">

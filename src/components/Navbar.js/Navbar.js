@@ -28,10 +28,14 @@ const Navbar = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link className="text-blue-500">Ships </Link>
+                <Link to="/" className="text-blue-500">
+                  Ships{" "}
+                </Link>
               </li>
               <li>
-                <Link className="text-blue-500">My Bookings</Link>
+                <Link to="/" className="text-blue-500">
+                  My Bookings
+                </Link>
               </li>
             </ul>
           </div>
@@ -45,10 +49,14 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link className="text-white">Ships </Link>
+              <Link to="/" className="text-white">
+                Ships{" "}
+              </Link>
             </li>
             <li>
-              <Link className="text-white">My Bookings</Link>
+              <Link to="/" className="text-white">
+                My Bookings
+              </Link>
             </li>
           </ul>
         </div>

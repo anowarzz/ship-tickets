@@ -5,11 +5,11 @@ import ShipList from "../../data/ships.json";
 const PopularSection = () => {
   const [ships, setShips] = useState(ShipList);
 
-  console.log(ships);
+
 
   return (
     <div>
-      <h2 className="text-blue-500 font-bold text-2xl md:text-4xl lg:text-4xl my-12 pl-8">
+      <h2 className="text-blue-500 font-bold text-2xl md:text-4xl lg:text-4xl mt-24 pl-8">
         Popular For You
       </h2>
 
@@ -17,7 +17,7 @@ const PopularSection = () => {
         {ships.length > 0 &&
           ships.map((ship) => {
             return (
-              <Link className="my-12 px-8" to={`/ships/${ship?.id}`}>
+              <Link className="my-8 px-8" to={`/ships/${ship?.id}`}>
                 <h5 className="text-teal-600 text-2xl md:text-3xl lg:text-4xl mb-6">
                   {ship?.title}
                 </h5>

@@ -13,7 +13,7 @@ const PopularSection = () => {
 // fetching ship data 
 
   useEffect(() => {
-    fetch("/ships.json")
+    fetch("https://ship-ticket-server.vercel.app/ships")
       .then((res) => res.json())
       .then((data) => setShips(data));
   }, []);
@@ -32,7 +32,7 @@ const PopularSection = () => {
         {ships.length > 0 &&
           ships.map((ship) => {
             return (
-              <Link className="my-8 px-8" to={`/ships/${ship?.id}`}>
+              <Link className="my-8 px-8" to={`/shipsDetail/${ship?.id}`} key={ship.id}>
                 <h5 className="text-gray-700 text-xl md:text-2xl lg:text-3xl mb-6">
                   {ship?.title}
                 </h5>

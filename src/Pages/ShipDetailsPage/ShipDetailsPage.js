@@ -4,6 +4,11 @@ import { toast, ToastContainer } from "react-toastify";
 import TicketBookingModal from "../../components/TicketBookingModal/TicketBookingModal";
 
 const ShipDetailsPage = () => {
+  //  scroll to top on page load
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
+
   // Single Ship data
   const shipData = useLoaderData();
 
@@ -14,7 +19,6 @@ const ShipDetailsPage = () => {
   const [showBookingModal, setShowBookingModal] = useState(false);
 
   // function to handle selected seat
-
   const handleSeatSelection = () => {
     setSeatSelected(!seatSelected);
     handleToast();
@@ -135,7 +139,7 @@ const ShipDetailsPage = () => {
         )}
       </div>
 
-      {showBookingModal && <TicketBookingModal shipData={shipData} />}
+      {showBookingModal && <TicketBookingModal handleSeatSelection={handleSeatSelection} shipData={shipData} />}
 
       <ToastContainer />
     </div>

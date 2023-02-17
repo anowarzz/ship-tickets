@@ -9,13 +9,20 @@ const PopularSection = () => {
   const [ships, setShips] = useState([]);
 
 
+  // state to track the loading phase
+  const [loading, setLoading] = useState(false)
+
 
 // fetching ship data 
 
   useEffect(() => {
+    setLoading(true)
     fetch("https://ship-ticket-server.vercel.app/ships")
       .then((res) => res.json())
-      .then((data) => setShips(data));
+      .then((data) => {
+        setShips(data)
+        setLoading(false)
+      });
   }, []);
 
 
@@ -27,6 +34,10 @@ const PopularSection = () => {
       <h2 className="text-blue-500 font-bold text-2xl md:text-4xl lg:text-4xl mt-24 pl-8">
         Popular For You
       </h2>
+
+      {
+        loading && <h3 className="text-center text-2xl md:text-3xl lg-text-4xl">Loading....</h3>
+      }
 
       <div className="grid  sm:grid-cols-2 lg:grid-cols-3 mx-auto">
         {ships.length > 0 &&

@@ -1,14 +1,51 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 import TicketBookingModal from "../../components/TicketBookingModal/TicketBookingModal";
 
 const ShipDetailsPage = () => {
-
   // Single Ship data
   const shipData = useLoaderData();
 
+  // state to disable and enable the booking button
+  const [seatSelected, setSeatSelected] = useState(false);
+
   // state to manage the toggle of booking modal
   const [showBookingModal, setShowBookingModal] = useState(false);
+
+  // function to handle selected seat
+
+  const handleSeatSelection = () => {
+    setSeatSelected(!seatSelected);
+    handleToast();
+  };
+
+  const handleToast = () => {
+    if (!seatSelected) {
+      toast.success("Seat Selected", {
+        position: "bottom-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    }
+    if (seatSelected) {
+      toast.success("Seat Canceled!", {
+        position: "bottom-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
+  };
 
   return (
     <div>
@@ -28,7 +65,9 @@ const ShipDetailsPage = () => {
           alt=""
         />
 
-        <p className="text-center my-8">Please Select Your Seat</p>
+        <p className="text-center my-8">
+          Please Select Your Seat from the image below
+        </p>
 
         <img
           src={shipData?.seatsImg}
@@ -44,6 +83,7 @@ const ShipDetailsPage = () => {
             alt="seatImage"
             title="Book this seat"
             className="pointer"
+            onClick={handleSeatSelection}
           />
 
           <area
@@ -52,6 +92,7 @@ const ShipDetailsPage = () => {
             alt="seatImage"
             title="Book this seat"
             className="pointer"
+            onClick={handleSeatSelection}
           />
 
           <area
@@ -60,6 +101,7 @@ const ShipDetailsPage = () => {
             alt="seatImage"
             title="Book this seat"
             className="pointer"
+            onClick={handleSeatSelection}
           />
 
           <area
@@ -68,15 +110,34 @@ const ShipDetailsPage = () => {
             alt="seatImage"
             title="Book this seat"
             className="pointer"
+            onClick={handleSeatSelection}
           />
         </map>
       </div>
 
       <div className="text-center">
-        <label htmlFor="booking-modal" className="btn bg-success rounded-md py-2 mt-8 border-none w-2/6 md:w-1/4" onClick={() => setShowBookingModal(true)}>Book Now</label>
+        {seatSelected ? (
+          <label
+            htmlFor="booking-modal"
+            className="btn bg-success rounded-md py-2 mt-8 border-none w-2/6 md:w-1/4"
+            onClick={() => setShowBookingModal(true)}
+          >
+            Book Now
+          </label>
+        ) : (
+          <button
+            disabled
+            className="btn bg-success rounded-md py-2 mt-8 border-none w-2/6 md:w-1/4"
+            onClick={() => setShowBookingModal(true)}
+          >
+            Select a Seat First
+          </button>
+        )}
       </div>
 
-      {showBookingModal && <TicketBookingModal shipData={shipData}/>}
+      {showBookingModal && <TicketBookingModal shipData={shipData} />}
+
+      <ToastContainer />
     </div>
   );
 };
